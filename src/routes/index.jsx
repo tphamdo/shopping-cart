@@ -5,7 +5,7 @@ function Index() {
   return (
     <div className={styles['home-page-container']}>
       <div className={styles.content}>
-        <h1>Simple. Comfort.</h1>
+        <h1>Pure Threads</h1>
         <Link to={'products'}>
           <button>Shop now</button>
         </Link>

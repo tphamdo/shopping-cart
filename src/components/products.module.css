@@ -32,6 +32,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  gap: 5px;
   text-align: center;
   background-color: rgb(255, 255, 255);
   padding: 20px;
@@ -54,11 +55,11 @@
 }
 
 .product img:hover {
-  -webkit-transform: scale(1.08); /* Safari and Chrome */
-  -moz-transform: scale(1.08); /* Firefox */
-  -ms-transform: scale(1.08); /* IE 9 */
-  -o-transform: scale(1.08); /* Opera */
-  transform: scale(1.08);
+  -webkit-transform: scale(1.05); /* Safari and Chrome */
+  -moz-transform: scale(1.05); /* Firefox */
+  -ms-transform: scale(1.05); /* IE 9 */
+  -o-transform: scale(1.05); /* Opera */
+  transform: scale(1.05);
 }
 
 input {
@@ -81,7 +82,6 @@ input {
   transform: scale(1.03);
 }
 
-.addToCart,
-.counter {
-  margin-top: 5px;
+.product .price {
+  margin-top: auto;
 }

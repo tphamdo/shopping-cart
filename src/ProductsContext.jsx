@@ -1,6 +1,5 @@
 import { createContext, useState, useEffect, useContext } from 'react';
 import PropTypes from 'prop-types';
-import { addProducts } from './products';
 
 const ProductsContext = createContext();
 
@@ -9,8 +8,38 @@ export function ProductsContextProvider({ children }) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  function addToCart(productId) {
+    setProducts((prods) =>
+      prods.map((p) => (p.id == productId ? { ...p, count: 1 } : p)),
+    );
+  }
+
+  function removeFromCart(productId) {
+    setProducts((products) =>
+      products.map((p) => (p.id == productId ? { ...p, count: 0 } : p)),
+    );
+  }
+
+  function changeQty(productId, quantity) {
+    setProducts((products) =>
+      products.map((p) => (p.id == productId ? { ...p, count: quantity } : p)),
+    );
+  }
+
+  function decrementQty(productId) {
+    setProducts((prods) =>
+      prods.map((p) => (p.id == productId ? { ...p, count: p.count - 1 } : p)),
+    );
+  }
+
+  function incrementQty(productId) {
+    setProducts((prods) =>
+      prods.map((p) => (p.id == productId ? { ...p, count: p.count + 1 } : p)),
+    );
+  }
+
   useEffect(() => {
-    fetch('https://fakestoreapi.com/products/?limit=10')
+    fetch('https://fakestoreapi.com/products/?limit=12')
       .then((response) => {
         if (response.status >= 400) {
           throw new Error('server error');
@@ -21,7 +50,6 @@ export function ProductsContextProvider({ children }) {
         console.log(json);
         let products = json.map((p) => ({ ...p, count: 0 }));
         setProducts(products);
-        // addProducts(products);
       })
       .catch((error) => {
         console.error(error);
@@ -31,7 +59,18 @@ export function ProductsContextProvider({ children }) {
   }, []);
 
   return (
-    <ProductsContext.Provider value={{ products, setProducts, loading, error }}>
+    <ProductsContext.Provider
+      value={{
+        products,
+        loading,
+        error,
+        addToCart,
+        removeFromCart,
+        changeQty,
+        decrementQty,
+        incrementQty,
+      }}
+    >
       {children}
     </ProductsContext.Provider>
   );

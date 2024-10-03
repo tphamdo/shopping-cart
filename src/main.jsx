@@ -5,6 +5,7 @@ import Root from './routes/root';
 import Index from './routes/index';
 import ErrorPage from './routes/error-page';
 import ProductsPage from './routes/products-page';
+import ProductPage from './routes/product-page';
 import CheckoutPage from './routes/checkout-page';
 import './index.css';
 
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
           {
             path: 'products',
             element: <ProductsPage />,
+          },
+          {
+            path: 'product/:productId',
+            element: <ProductPage />,
           },
           {
             path: 'checkout',

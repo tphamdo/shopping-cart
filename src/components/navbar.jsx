@@ -13,7 +13,7 @@ function NavBar() {
     <div className={styles.navContainer}>
       <nav className={styles.links}>
         <Link className={`${styles.navLink} ${styles.logo}`} to="">
-          Simple Style
+          Pure Threads
         </Link>
         <NavLink className={styles.navLink} to="products">
           Products

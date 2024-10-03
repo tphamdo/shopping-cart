@@ -6,14 +6,19 @@ import CountIncrementor from './CountIncrementor';
 import styles from './checked-out-products.module.css';
 
 function CheckedOutProduct({ product }) {
+  const { removeFromCart } = useProducts();
+
   return (
     <div key={product.id} className={styles.product}>
       <img src={product.image} style={{ height: '150px', width: '150px' }} />
-      <div>
+      <div className={styles.productDetails}>
         <p>{product.title}</p>
         <CountIncrementor productId={product.id} />
+        <p className={styles.remove} onClick={() => removeFromCart(product.id)}>
+          Remove
+        </p>
       </div>
-      <p className={styles.price}>{product.price}</p>
+      <p className={styles.price}>${product.price}</p>
     </div>
   );
 }

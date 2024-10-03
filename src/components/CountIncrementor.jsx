@@ -3,32 +3,13 @@ import PropTypes from 'prop-types';
 import { useProducts } from '../ProductsContext';
 
 function CountIncrementor({ productId }) {
-  const { products, setProducts } = useProducts();
+  const { products, decrementQty, incrementQty, changeQty } = useProducts();
   const count = products.find((p) => p.id == productId).count;
-
-  function handleDecrement() {
-    setProducts((products) =>
-      products.map((p) =>
-        p.id == productId ? { ...p, count: p.count - 1 } : p,
-      ),
-    );
-    console.log(productId);
-  }
-
-  function handleIncrement() {
-    setProducts((products) =>
-      products.map((p) =>
-        p.id == productId ? { ...p, count: p.count + 1 } : p,
-      ),
-    );
-  }
 
   function handleQuantityChange(event) {
     event.preventDefault();
     let quantity = +event.target.closest('form').elements.count.value;
-    setProducts((products) =>
-      products.map((p) => (p.id == productId ? { ...p, count: quantity } : p)),
-    );
+    changeQty(productId, quantity);
   }
 
   return (
@@ -40,7 +21,7 @@ function CountIncrementor({ productId }) {
       <div className={styles.counter}>
         <button
           type="button"
-          onClick={handleDecrement}
+          onClick={() => decrementQty(productId)}
           className={`${styles.countButton} ${styles.decrement}`}
         >
           &minus;
@@ -54,7 +35,7 @@ function CountIncrementor({ productId }) {
         />
         <button
           type="button"
-          onClick={handleIncrement}
+          onClick={() => incrementQty(productId)}
           className={`${styles.countButton} ${styles.increment}`}
         >
           &#43;
