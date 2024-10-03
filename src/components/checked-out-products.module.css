@@ -102,3 +102,8 @@ button.checkout,
   font-size: 0.9rem;
   cursor: pointer;
 }
+
+.productDetails a {
+  color: inherit;
+  text-decoration: inherit;
+}

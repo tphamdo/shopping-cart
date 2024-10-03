@@ -10,9 +10,11 @@ function CheckedOutProduct({ product }) {
 
   return (
     <div key={product.id} className={styles.product}>
-      <img src={product.image} style={{ height: '150px', width: '150px' }} />
+      <Link to={`/product/${product.id}`}>
+        <img src={product.image} style={{ height: '150px', width: '150px' }} />
+      </Link>
       <div className={styles.productDetails}>
-        <p>{product.title}</p>
+        <Link to={`/product/${product.id}`}>{product.title}</Link>
         <CountIncrementor productId={product.id} />
         <p className={styles.remove} onClick={() => removeFromCart(product.id)}>
           Remove

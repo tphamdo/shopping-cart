@@ -1,27 +1,25 @@
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styles from './products.module.css';
-import { useProducts } from '../ProductsContext';
-import CountIncrementor from './CountIncrementor';
+import ReactStars from 'react-rating-stars-component';
 
 function Card({ product }) {
-  const { addToCart } = useProducts();
-
   return (
     <div className={styles.product} data-product-id={product.id}>
       <Link to={`/product/${product.id}`}>
         <img src={product.image} />
       </Link>
       <p className={styles.price}>${product.price}</p>
-      {product.count > 0 && <CountIncrementor productId={product.id} />}
-      {product.count <= 0 && (
-        <input
-          type="submit"
-          value="Add to Cart"
-          onClick={() => addToCart(product.id)}
-          className={styles.addToCart}
+      <div className={styles.ratingContainer}>
+        <ReactStars
+          count={5}
+          size={24}
+          activeColor="#de7921"
+          isHalf={true}
+          edit={false}
+          value={product.rating.rate}
         />
-      )}
+      </div>
     </div>
   );
 }
@@ -32,6 +30,7 @@ Card.propTypes = {
     price: PropTypes.number.isRequired,
     image: PropTypes.string.isRequired,
     count: PropTypes.number.isRequired,
+    rating: PropTypes.object.isRequired,
   }),
 };
 
