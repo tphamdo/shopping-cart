@@ -10,7 +10,7 @@ export function ProductsContextProvider({ children }) {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch('https://fakestoreapi.com/products/?limit=5')
+    fetch('https://fakestoreapi.com/products/?limit=10')
       .then((response) => {
         if (response.status >= 400) {
           throw new Error('server error');

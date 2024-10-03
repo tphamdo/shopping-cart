@@ -6,11 +6,7 @@ function ProductsPage() {
   if (error) return <p>Sorry, something went wrong loading the data.</p>;
   if (loading) return <p>Loading...</p>;
 
-  try {
-    return <Products products={products} />;
-  } catch {
-    return <p>Sorry, something went wrong</p>;
-  }
+  return <Products products={products} />;
 }
 
 export default ProductsPage;

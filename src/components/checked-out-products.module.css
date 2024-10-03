@@ -1,0 +1,107 @@
+.page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.products-container {
+  margin: 100px 0;
+  width: 1200px;
+  padding-bottom: 50px;
+  background-color: white;
+  border-radius: 10px;
+  padding: 0px 40px 20px;
+
+  & h1 {
+    color: black;
+    font-size: 4rem;
+    font-weight: 500;
+    letter-spacing: 0.1rem;
+    /* margin-bottom: 30px; */
+    padding: 10px;
+    text-align: center;
+  }
+}
+
+.products {
+  border-radius: 10px;
+  /* padding: 20px; */
+  background-color: white;
+}
+
+.product {
+  /* border: 1px solid red; */
+  /* height: 390px; */
+  /* width: 300px; */
+  flex: none;
+  display: flex;
+  gap: 50px;
+  /* flex-direction: column; */
+  align-items: center;
+  justify-content: space-between;
+  /* text-align: left; */
+  /* background-color: rgb(255, 255, 255); */
+  padding: 20px;
+  /* border-radius: 5px; */
+  /* border: 1px solid black; */
+  overflow: hidden;
+  border-bottom: 1px solid black;
+}
+
+.product .price {
+  margin-left: auto;
+}
+
+.product img {
+  flex: none;
+  height: 150px;
+  width: 150px;
+  cursor: pointer;
+  margin-bottom: auto;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -ms-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  vertical-align: middle;
+}
+
+.product img:hover {
+  -webkit-transform: scale(1.08); /* Safari and Chrome */
+  -moz-transform: scale(1.08); /* Firefox */
+  -ms-transform: scale(1.08); /* IE 9 */
+  -o-transform: scale(1.08); /* Opera */
+  transform: scale(1.08);
+}
+
+.totalPrice {
+  text-align: right;
+  margin-top: 10px;
+}
+
+.noItems {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+button.checkout,
+.noItems button {
+  background-color: rgb(25, 118, 210);
+  border: none;
+  color: white;
+  border-radius: 5px;
+  padding: 2px 15px;
+}
+
+.buttonContainer {
+  display: flex;
+  margin-top: 5px;
+  justify-content: center;
+
+  /* .checkout { */
+  /*   margin-left: auto; */
+  /* } */
+}

@@ -1,5 +1,5 @@
 import styles from './navbar.module.css';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useProducts } from '../ProductsContext';
 
 function NavBar() {
@@ -10,18 +10,18 @@ function NavBar() {
   );
 
   return (
-    <div>
+    <div className={styles.navContainer}>
       <nav className={styles.links}>
-        <NavLink className={styles.navLink} to="">
-          Home
-        </NavLink>
+        <Link className={`${styles.navLink} ${styles.logo}`} to="">
+          Simple Style
+        </Link>
         <NavLink className={styles.navLink} to="products">
           Products
         </NavLink>
         <NavLink className={styles.navLink} to="about">
           About
         </NavLink>
-        <NavLink className={styles.navLink} to="cart">
+        <Link className={styles.navLink} to="checkout">
           <i className="fa">
             &#xf07a;
             <span
@@ -30,14 +30,14 @@ function NavBar() {
               {getCartCount(cartCount)}
             </span>
           </i>
-        </NavLink>
+        </Link>
       </nav>
     </div>
   );
 }
 
 function getCartCount(count) {
-  if (count <= 0) return '';
+  if (count <= 0) return '0';
   if (count > 9) return '9+';
   return count;
 }

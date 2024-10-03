@@ -1,31 +1,30 @@
-import { Form } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styles from './products.module.css';
 import { useProducts } from '../ProductsContext';
+import CountIncrementor from './CountIncrementor';
 
 function Card({ product }) {
   const { setProducts } = useProducts();
 
   function handleAddToCart(event) {
-    console.log(event.target.dataset.productId);
-    let productId = event.target.dataset.productId;
+    let productId = event.target.closest('[data-product-id]').dataset.productId;
+    console.log(productId);
     setProducts((products) =>
       products.map((p) => (p.id == productId ? { ...p, count: 1 } : p)),
     );
   }
 
   return (
-    <div className={styles.product}>
-      <h3>{product.title}</h3>
+    <div className={styles.product} data-product-id={product.id}>
       <img src={product.image} />
       <p>${product.price}</p>
-      {product.count > 0 && <p>Count: {product.count}</p>}
+      {product.count > 0 && <CountIncrementor productId={product.id} />}
       {product.count <= 0 && (
         <input
           type="submit"
           value="Add to Cart"
-          data-product-id={product.id}
           onClick={handleAddToCart}
+          className={styles.addToCart}
         />
       )}
     </div>
