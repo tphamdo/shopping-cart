@@ -18,9 +18,6 @@ function NavBar() {
         <NavLink className={styles.navLink} to="products">
           Products
         </NavLink>
-        <NavLink className={styles.navLink} to="about">
-          About
-        </NavLink>
         <Link className={styles.navLink} to="checkout">
           <i className="fa">
             &#xf07a;

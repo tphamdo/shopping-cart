@@ -5,7 +5,6 @@ import Root from './routes/root';
 import Index from './routes/index';
 import ErrorPage from './routes/error-page';
 import ProductsPage from './routes/products-page';
-import AboutPage from './routes/about-page';
 import CheckoutPage from './routes/checkout-page';
 import './index.css';
 
@@ -25,10 +24,6 @@ const router = createBrowserRouter([
           {
             path: 'products',
             element: <ProductsPage />,
-          },
-          {
-            path: 'about',
-            element: <AboutPage />,
           },
           {
             path: 'checkout',
