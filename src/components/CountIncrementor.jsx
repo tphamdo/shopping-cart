@@ -41,7 +41,7 @@ function CountIncrementor({ productId }) {
         <button
           type="button"
           onClick={handleDecrement}
-          className={styles.countButton}
+          className={`${styles.countButton} ${styles.decrement}`}
         >
           &minus;
         </button>
@@ -55,7 +55,7 @@ function CountIncrementor({ productId }) {
         <button
           type="button"
           onClick={handleIncrement}
-          className={styles.countButton}
+          className={`${styles.countButton} ${styles.increment}`}
         >
           &#43;
         </button>
